@@ -14,8 +14,8 @@ export default function Home() {
 
       <main>
         <H1>Around the Table</H1>
-        <h2>homepage</h2>
-        <Link href="/about">about</Link>
+        <h2>about</h2>
+        <Link href="/">home</Link>
       </main>
     </>
   );
