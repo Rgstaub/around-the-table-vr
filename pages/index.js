@@ -8,6 +8,7 @@ const PageStyles = styled.div`
     color: ${theme.textColor};
   `}
   min-height: 100vh;
+  contain: content;
 
   a {
     color: inherit;
@@ -20,11 +21,11 @@ export default function Home() {
     <PageStyles>
       <Container>
         <Typography variant="h3">Homepage</Typography>
-        <Button variant="contained" color="primary">
-          <Link href="/about">
+        <Link href="/about">
+          <Button variant="contained" color="primary">
             <a>About</a>
-          </Link>
-        </Button>
+          </Button>
+        </Link>
         <Typography variant="body1" paragraph>
           Lucas ipsum dolor sit amet iktotchi jade quee utapau letaki lars
           kaleesh mon bardan derlin. Naboo rakata thul dor hutta chistori. Huk
