@@ -1,5 +1,5 @@
 const theme = {
-  bgColor: '#2b2b2b',
+  bgColor: '#000000',
   textColor: '#FFFFFF',
 };
 
