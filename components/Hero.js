@@ -66,6 +66,18 @@ const LogoImg = styled.img`
   margin-top: 20px;
 `;
 
+const CyanButton = styled(Button)`
+  :hover {
+    box-shadow: 0px 5px 20px cyan !important;
+  }
+`;
+
+const YellowButton = styled(Button)`
+  :hover {
+    box-shadow: 0px 5px 20px yellow !important;
+  }
+`;
+
 function DiscordIcon() {
   return (
     <SvgIcon>
@@ -105,22 +117,22 @@ export default function Hero() {
           <div>VR</div>
         </Header>
         <ButtonGroup>
-          <Button
+          <CyanButton
             variant="contained"
             color="primary"
             href="https://discord.gg/C7PpsEk"
             startIcon={DiscordIcon()}
           >
             Discord
-          </Button>
-          <Button
+          </CyanButton>
+          <YellowButton
             variant="contained"
             color="secondary"
             href="https://www.patreon.com/AroundTheTableVR?fan_landing=true"
             startIcon={PatreonIcon()}
           >
             Patreon
-          </Button>
+          </YellowButton>
         </ButtonGroup>
       </StyledContainer>
     </Section>
