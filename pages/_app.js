@@ -1,7 +1,15 @@
 import NextApp from 'next/app';
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import theme from '../utils/theme';
+
+const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: 'halfomania';
+    src: url('/font/Halfomania-Regular.ttf');
+    font-display: auto;
+  }
+`;
 
 export default class App extends NextApp {
   componentDidMount() {
@@ -13,6 +21,7 @@ export default class App extends NextApp {
     const { Component, pageProps } = this.props;
     return (
       <ThemeProvider theme={theme}>
+        <GlobalStyle />
         <Component {...pageProps} />
       </ThemeProvider>
     );
