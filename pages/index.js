@@ -2,6 +2,8 @@ import { Button, Container, Typography } from '@material-ui/core';
 import Link from 'next/link';
 import styled from 'styled-components';
 import Hero from '../components/Hero';
+import ImageAndTextSection from '../components/ImageAndTextSection';
+import Footer from '../components/Footer';
 
 const PageStyles = styled.div`
   ${({ theme }) => `
@@ -21,30 +23,8 @@ export default function Home() {
   return (
     <PageStyles>
       <Hero />
-      <footer>
-        <div>
-          Icons made by{' '}
-          <a
-            href="https://www.flaticon.com/authors/pixel-perfect"
-            title="Pixel perfect"
-          >
-            Pixel perfect
-          </a>{' '}
-          from{' '}
-          <a href="https://www.flaticon.com/" title="Flaticon">
-            www.flaticon.com
-          </a>
-        </div>
-        Icons made by{' '}
-        <a href="https://icon54.com/" title="Pixel perfect">
-          Pixel perfect
-        </a>{' '}
-        from{' '}
-        <a href="https://www.flaticon.com/" title="Flaticon">
-          {' '}
-          www.flaticon.com
-        </a>
-      </footer>
+      <ImageAndTextSection alignment="left" />
+      <Footer />
     </PageStyles>
   );
 }

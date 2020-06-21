@@ -15,37 +15,38 @@ const HeroVideo = styled.video`
 
 const StyledContainer = styled(Container)`
   position: relative;
-  left: 0;
-  top: 0;
 `;
 
-const Section = styled.section`
+const FlexWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
   text-align: center;
-  contain: content;
-  min-height: 100vh;
+  height: 100vh;
 `;
 
-const Header = styled(Typography)`
+const Header = styled.header`
+  contain: content;
+  height: 100vh;
+`;
+
+// May the gods of CSS forgive me...
+// TODO ?? figure out how to use Material-ui style override solution
+// https://material-ui.com/styles/basics/#material-ui-styles
+const H1 = styled(Typography)`
   font-family: halfomania !important;
   text-shadow: 0px 0px 20px yellow;
-  color: #fdffdd;
+  color: #fdffdd; // random light-yellow from color picker
 
   line-height: 0.7 !important;
   font-size: 14vw !important;
-  margin-top: 13vh !important;
   @media (min-width: 769px) {
     font-size: 10vw !important;
-    margin-top: 6% !important;
   }
 `;
 
 const ButtonGroup = styled.div`
-  margin-top: 20vh;
-
-  @media (min-width: 769px) {
-    margin-top: 20vh;
-  }
-
   a {
     width: 100%;
     :first-child {
@@ -60,10 +61,6 @@ const ButtonGroup = styled.div`
       }
     }
   }
-`;
-
-const LogoImg = styled.img`
-  margin-top: 20px;
 `;
 
 const CyanButton = styled(Button)`
@@ -88,6 +85,7 @@ function DiscordIcon() {
   );
 }
 
+// TODO - This SVG ain't working. Fix it!
 function PatreonIcon() {
   <SvgIcon>
     <path d="m0 1.25v21.5c0 .414.336.75.75.75h3.955c.414 0 .75-.336.75-.75v-21.5c0-.414-.336-.75-.75-.75h-3.955c-.414 0-.75.336-.75.75zm1.5.75h2.455v20h-2.455z" />
@@ -97,7 +95,7 @@ function PatreonIcon() {
 
 export default function Hero() {
   return (
-    <Section>
+    <Header>
       <HeroVideo
         autoPlay
         muted
@@ -107,34 +105,36 @@ export default function Hero() {
         type="video/mp4"
       />
       <StyledContainer>
-        <LogoImg
-          src="/images/ATT_Logo_Transparent.png"
-          width="150"
-          height="150"
-        />
-        <Header variant="h1">
-          <div>AROUND THE TABLE</div>
-          <div>VR</div>
-        </Header>
-        <ButtonGroup>
-          <CyanButton
-            variant="contained"
-            color="primary"
-            href="https://discord.gg/C7PpsEk"
-            startIcon={DiscordIcon()}
-          >
-            Discord
-          </CyanButton>
-          <YellowButton
-            variant="contained"
-            color="secondary"
-            href="https://www.patreon.com/AroundTheTableVR?fan_landing=true"
-            startIcon={PatreonIcon()}
-          >
-            Patreon
-          </YellowButton>
-        </ButtonGroup>
+        <FlexWrapper>
+          <img
+            src="/images/ATT_Logo_Transparent.png"
+            width="150"
+            height="150"
+          />
+          <H1 variant="h1">
+            <div>AROUND THE TABLE</div>
+            <div>VR</div>
+          </H1>
+          <ButtonGroup>
+            <CyanButton
+              variant="contained"
+              color="primary"
+              href="https://discord.gg/C7PpsEk"
+              startIcon={DiscordIcon()}
+            >
+              Discord
+            </CyanButton>
+            <YellowButton
+              variant="contained"
+              color="secondary"
+              href="https://www.patreon.com/AroundTheTableVR?fan_landing=true"
+              startIcon={PatreonIcon()}
+            >
+              Patreon
+            </YellowButton>
+          </ButtonGroup>
+        </FlexWrapper>
       </StyledContainer>
-    </Section>
+    </Header>
   );
 }
