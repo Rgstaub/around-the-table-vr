@@ -28,13 +28,16 @@ const PageStyles = styled.div`
 `;
 
 const OtherStuff = styled.section`
-  min-height: 100vh;
+  height: 100vh;
   ${({ alignment }) => {
     if (alignment === 'right') {
       return 'background-image: linear-gradient(#222222, #111111);';
     }
     return 'background-image: linear-gradient(#111111, #222222);';
   }}
+  @media (min-width: 769px) {
+    height: auto;
+  }
 `;
 
 const H2 = styled(Typography)`
@@ -50,12 +53,14 @@ const H2 = styled(Typography)`
 `;
 
 const NarrowContainer = styled(Container)`
-  min-height: 100vh;
+  height: 100vh;
   display: flex !important;
   flex-direction: column;
   justify-content: center;
   @media (min-width: 769px) {
-    max-width: 60% !important;
+    max-width: 50% !important;
+    height: auto;
+    padding: 120px 0;
   }
 `;
 
@@ -126,7 +131,7 @@ export default function Home() {
       <OtherStuff>
         <NarrowContainer>
           <H2 color="cyan">How do I get involded?</H2>
-          <OtherParagraph>
+          <OtherParagraph variant="body2">
             Join the{' '}
             <a className="show-link-styles" href="https://discord.gg/C7PpsEk">
               Discord
@@ -136,7 +141,7 @@ export default function Home() {
             cross-platform we'll need tons of testers with different headsets
             and platforms.
           </OtherParagraph>
-          <OtherParagraph>
+          <OtherParagraph variant="body2">
             In addition to this, I humbly ask you to{' '}
             <a
               className="show-link-styles"

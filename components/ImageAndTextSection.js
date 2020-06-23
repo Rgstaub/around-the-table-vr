@@ -9,6 +9,9 @@ const Section = styled.section`
     }
     return 'background-image: linear-gradient(#111111, #222222);';
   }}
+  @media (min-width: 769px) {
+    height: auto;
+  }
 `;
 
 const StyledContainer = styled(Container)``;
@@ -21,6 +24,8 @@ const FlexWrapper = styled.div`
   justify-content: center;
   @media (min-width: 769px) {
     justify-content: space-between;
+    padding: 120px 0;
+    height: auto;
     ${({ alignment }) => {
       if (alignment === 'right') {
         return 'flex-direction: row-reverse;';
