@@ -3,7 +3,12 @@ import styled from 'styled-components';
 
 const Section = styled.section`
   height: 100vh;
-  background-image: linear-gradient(black, #222222);
+  ${({ alignment }) => {
+    if (alignment === 'right') {
+      return 'background-image: linear-gradient(#222222, #111111);';
+    }
+    return 'background-image: linear-gradient(#111111, #222222);';
+  }}
 `;
 
 const StyledContainer = styled(Container)``;
@@ -13,47 +18,80 @@ const FlexWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   height: 100vh;
-  justify-content: space-between;
+  justify-content: center;
   @media (min-width: 769px) {
-    flex-direction: row;
+    justify-content: space-between;
+    ${({ alignment }) => {
+      if (alignment === 'right') {
+        return 'flex-direction: row-reverse;';
+      }
+      return 'flex-direction: row;';
+    }}
   }
 `;
 
 const TextContent = styled.div`
   padding: 10px;
+  order: 1;
+  margin-bottom: 20px;
   @media (min-width: 769px) {
-    max-width: 48%;
+    width: 48%;
+    order: 2;
+    margin-bottom: 0;
+    ${({ alignment }) => {
+      // if (alignment === 'right') {
+      //   return 'text-align: right;';
+      // }
+    }}
   }
 `;
 
 const StyledImage = styled.img`
+  width: 100%;
+  order: 2;
+  transition: box-shadow 0.5s;
+  ${({ color }) => {
+    return `
+      box-shadow: 0px 3px 15px ${color};
+      &:hover {
+        box-shadow: 0px 3px 20px ${color};
+      }
+    `;
+  }}
+
   @media (min-width: 769px) {
-    max-width: 48%;
+    order: 1;
+    width: 48%;
   }
 `;
 
 const H2 = styled(Typography)`
   font-size: 32px !important;
+  margin-bottom: 20px !important;
+  text-align: center;
+  ${({ color }) => `text-shadow: 0px 0px 5px ${color};`}
+  @media (min-width: 769px) {
+    text-align: left;
+  }
 `;
 
-export default function ImageAndTextSection({ alignment, children }) {
-  console.log({ alignment });
+export default function ImageAndTextSection({
+  alignment,
+  body,
+  heading,
+  image,
+}) {
+  const color = alignment === 'right' ? 'yellow' : 'cyan';
   return (
-    <Section>
+    <Section alignment={alignment}>
       <StyledContainer>
-        <FlexWrapper>
-          <StyledImage src="/images/chess.gif" />
-          <TextContent>
-            <H2 variant="h2">Single Player &amp; Mulitplayer</H2>
-            <Typography variant="body2">
-              Sometimes, it's fun to play alone but if we're being honest,
-              there's really no board games without other people. But I'll let
-              you decide, so we'll have both options. ATT will have an AI-driven
-              singleplayer, as well as multiplayer allowing you to create
-              parties, host/join servers, and will also include a state of the
-              art Annoyance Prevention System (APS) allowing you to
-              mute/ghost/vote-kick players who are not so board game inclined.
-            </Typography>
+        <FlexWrapper alignment={alignment}>
+          <StyledImage src={image} color={color} />
+          <TextContent alignment={alignment}>
+            <H2 variant="h2" color={color}>
+              {heading}
+            </H2>
+            <Typography variant="body2">{body}</Typography>
           </TextContent>
         </FlexWrapper>
       </StyledContainer>
