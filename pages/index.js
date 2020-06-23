@@ -23,6 +23,7 @@ const PageStyles = styled.div`
   p {
     font-weight: 300;
     line-height: 2;
+    text-align: justify;
   }
 `;
 
@@ -62,7 +63,7 @@ const OtherParagraph = styled(Typography)`
   margin-bottom: 30px !important;
 `;
 
-const Li = styled.li`
+const Li = styled(Typography)`
   list-style-type: none;
   width: 50%;
 `;
@@ -157,8 +158,8 @@ export default function Home() {
           </H2>
           <Ul>
             {patrons.map((patron, i) => (
-              <Li key={i}>
-                <Typography variant="body1">{patron}</Typography>
+              <Li variant="body1" component="li" key={i}>
+                {patron}
               </Li>
             ))}
           </Ul>
