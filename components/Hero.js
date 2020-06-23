@@ -46,6 +46,13 @@ const H1 = styled(Typography)`
   }
 `;
 
+const SocialLinks = styled.div`
+  margin-top: 20px;
+  > i {
+    margin-right: 20px;
+  }
+`;
+
 const ButtonGroup = styled.div`
   a {
     width: 100%;
@@ -85,14 +92,6 @@ function DiscordIcon() {
   );
 }
 
-// TODO - This SVG ain't working. Fix it!
-function PatreonIcon() {
-  <SvgIcon>
-    <path d="m0 1.25v21.5c0 .414.336.75.75.75h3.955c.414 0 .75-.336.75-.75v-21.5c0-.414-.336-.75-.75-.75h-3.955c-.414 0-.75.336-.75.75zm1.5.75h2.455v20h-2.455z" />
-    <path d="m15.172.5c-4.882 0-8.854 3.957-8.854 8.82 0 4.852 3.972 8.799 8.854 8.799 4.868 0 8.828-3.948 8.828-8.799 0-4.863-3.96-8.82-8.828-8.82zm0 16.119c-4.055 0-7.354-3.274-7.354-7.299 0-4.036 3.299-7.32 7.354-7.32 4.041 0 7.328 3.284 7.328 7.32 0 4.024-3.287 7.299-7.328 7.299z" />
-  </SvgIcon>;
-}
-
 export default function Hero() {
   return (
     <Header>
@@ -120,7 +119,7 @@ export default function Hero() {
               variant="contained"
               color="primary"
               href="https://discord.gg/C7PpsEk"
-              startIcon={DiscordIcon()}
+              startIcon={<i class="fab fa-discord"></i>}
             >
               Discord
             </CyanButton>
@@ -128,10 +127,18 @@ export default function Hero() {
               variant="contained"
               color="secondary"
               href="https://www.patreon.com/AroundTheTableVR?fan_landing=true"
-              startIcon={PatreonIcon()}
+              startIcon={<i class="fab fa-patreon"></i>}
             >
               Patreon
             </YellowButton>
+            <SocialLinks>
+              <i class="fab fa-facebook-f"></i>
+              <i class="fab fa-instagram"></i>
+              <i class="fab fa-twitter"></i>
+              <i class="fab fa-trello"></i>
+              <i class="fab fa-reddit-alien"></i>
+              <i class="fab fa-discord"></i>
+            </SocialLinks>
           </ButtonGroup>
         </FlexWrapper>
       </StyledContainer>

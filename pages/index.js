@@ -5,6 +5,7 @@ import Hero from '../components/Hero';
 import ImageAndTextSection from '../components/ImageAndTextSection';
 import Footer from '../components/Footer';
 import Content from '../utils/Content';
+import patrons from '../utils/patrons';
 
 const PageStyles = styled.div`
   ${({ theme }) => `
@@ -35,26 +36,15 @@ const OtherStuff = styled.section`
   }}
 `;
 
-const GetInvolved = styled.section`
-  height: 100vh;
-  ${({ alignment }) => {
-    if (alignment === 'right') {
-      return 'background-image: linear-gradient(#222222, #111111);';
-    }
-    return 'background-image: linear-gradient(#111111, #222222);';
-  }}
-`;
-
 const H2 = styled(Typography)`
   font-size: 32px !important;
   text-align: center;
-  // margin-bottom: 10px !important;
   ${({ color, mb }) => `
     text-shadow: 0px 0px 5px ${color};
     margin-bottom: ${mb || '20px'} !important;
   `}
   @media (min-width: 769px) {
-    text-align: left;
+    text-align: center;
   }
 `;
 
@@ -70,6 +60,18 @@ const NarrowContainer = styled(Container)`
 
 const OtherParagraph = styled(Typography)`
   margin-bottom: 30px !important;
+`;
+
+const Li = styled.li`
+  list-style-type: none;
+  width: 50%;
+`;
+
+const Ul = styled.ul`
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  padding-inline-start: 0;
 `;
 
 export default function Home() {
@@ -95,8 +97,8 @@ export default function Home() {
       />
       <OtherStuff alignment="right">
         <NarrowContainer>
-          <H2 mb="0px" color="yellow">
-            Modding?! Modding!
+          <H2 color="yellow" variant="h2">
+            Modding, More Games, and Platforms
           </H2>
           <OtherParagraph variant="body2">
             Once the core game is developed, the community will have a visual
@@ -105,18 +107,14 @@ export default function Home() {
             creations, they'll also be able to publish it to a community market
             place to buy/sell mods or give them away for free.
           </OtherParagraph>
-          <H2 mb="0px" color="yellow">
-            More Games!
-          </H2>
+
           <OtherParagraph variant="body2">
             Uno, BS, Catan, Jenga, Monopoly, Warhammer, D&D, etc the inclusions
             are going to be endless! As the game progresses in development, I
             will be increasing the repository of games to include different
             genres.
           </OtherParagraph>
-          <H2 mb="0px" color="yellow">
-            Platforms
-          </H2>
+
           <OtherParagraph variant="body2">
             I would like ATT to be truly universal, and have cross-platform
             support (SteamVR, Oculus, etc) to accommodate all VR board game
@@ -124,7 +122,7 @@ export default function Home() {
           </OtherParagraph>
         </NarrowContainer>
       </OtherStuff>
-      <GetInvolved>
+      <OtherStuff>
         <NarrowContainer>
           <H2 color="cyan">How do I get involded?</H2>
           <OtherParagraph>
@@ -151,8 +149,21 @@ export default function Home() {
             long way for me!
           </OtherParagraph>
         </NarrowContainer>
-      </GetInvolved>
-      <Footer />
+      </OtherStuff>
+      <OtherStuff alignment="right">
+        <NarrowContainer>
+          <H2 color="yellow" variant="h2">
+            Thank you to our generous patrons:
+          </H2>
+          <Ul>
+            {patrons.map((patron, i) => (
+              <Li key={i}>
+                <Typography variant="body1">{patron}</Typography>
+              </Li>
+            ))}
+          </Ul>
+        </NarrowContainer>
+      </OtherStuff>
     </PageStyles>
   );
 }

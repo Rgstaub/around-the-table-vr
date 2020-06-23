@@ -50,6 +50,10 @@ class MyDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
+          <script
+            src="https://kit.fontawesome.com/c4a4d407dc.js"
+            crossorigin="anonymous"
+          ></script>
         </Head>
         <body style={{ margin: 0 }}>
           <Main />
