@@ -55,7 +55,7 @@ class MyDocument extends Document {
             crossorigin="anonymous"
           ></script>
         </Head>
-        <body style={{ margin: 0 }}>
+        <body style={{ margin: 0, backgroundColor: '#111111' }}>
           <Main />
           <NextScript />
         </body>

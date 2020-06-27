@@ -13,8 +13,9 @@ const PageStyles = styled.div`
     color: ${theme.textColor};
   `}
   min-height: 100vh;
-  contain: content;
-
+  contain: layout;
+  overflow: hidden;
+  max-width: 100vw;
   a:not(.show-link-styles) {
     color: inherit;
     text-decoration: none;

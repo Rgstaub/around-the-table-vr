@@ -6,10 +6,18 @@ const HeroVideo = styled.video`
   position: absolute;
   right: 0;
   bottom: 0;
+  top: 0;
+  left: 0;
   min-height: 100vh;
+  min-width: 100vh;
+  // max-width: 100vw;
   @media (max-width: 768px) {
-    margin-right: -100%;
+    // right: -100%;
   }
+  // min-height: 100%;
+  // min-width: 100%;
+  // height: auto !important;
+  // width: auto !important;
 `;
 
 const StyledContainer = styled(Container)`
@@ -26,9 +34,10 @@ const FlexWrapper = styled.div`
 `;
 
 const Header = styled.header`
-  contain: content;
+  // contain: content;
   height: 100vh;
-  overflow: hidden;
+  overflow: hidden !important;
+  max-width: 100vw;
 `;
 
 // May the gods of CSS forgive me...
