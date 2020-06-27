@@ -7,7 +7,7 @@ const HeroVideo = styled.video`
   right: 0;
   bottom: 0;
   top: 0;
-  left: 0;
+  // left: 0;
   min-height: 100vh;
   min-width: 100vh;
   // max-width: 100vw;
