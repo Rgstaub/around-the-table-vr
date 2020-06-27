@@ -12,7 +12,7 @@ const HeroVideo = styled.video`
   min-width: 100vh;
   // max-width: 100vw;
   @media (max-width: 768px) {
-    // right: -100%;
+    margin-right: -100%;
   }
   // min-height: 100%;
   // min-width: 100%;
