@@ -43,15 +43,10 @@ const TextContent = styled.div`
     width: 48%;
     order: 2;
     margin-bottom: 0;
-    ${({ alignment }) => {
-      // if (alignment === 'right') {
-      //   return 'text-align: right;';
-      // }
-    }}
   }
 `;
 
-const StyledImage = styled.img`
+const StyledVideo = styled.video`
   width: 100%;
   order: 2;
   transition: box-shadow 0.5s;
@@ -70,8 +65,9 @@ const StyledImage = styled.img`
   }
 `;
 
-const H2 = styled(Typography)`
+const H3 = styled(Typography)`
   font-size: 32px !important;
+  font-weight: 200 !important;
   margin-bottom: 20px !important;
   text-align: center;
   ${({ color }) => `text-shadow: 0px 0px 5px ${color};`}
@@ -80,22 +76,25 @@ const H2 = styled(Typography)`
   }
 `;
 
-export default function ImageAndTextSection({
-  alignment,
-  body,
-  heading,
-  image,
-}) {
+export default function ImageAndTextSection({ alignment, body, heading, src }) {
   const color = alignment === 'right' ? 'yellow' : 'cyan';
   return (
     <Section alignment={alignment}>
       <StyledContainer>
         <FlexWrapper alignment={alignment}>
-          <StyledImage src={image} color={color} />
+          <StyledVideo
+            autoPlay
+            playsInline
+            muted
+            loop
+            src={src}
+            color={color}
+            type="video/mp4"
+          />
           <TextContent alignment={alignment}>
-            <H2 variant="h2" color={color}>
+            <H3 variant="h3" color={color}>
               {heading}
-            </H2>
+            </H3>
             <Typography variant="body2">{body}</Typography>
           </TextContent>
         </FlexWrapper>

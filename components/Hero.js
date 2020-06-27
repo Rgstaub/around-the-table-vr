@@ -6,8 +6,7 @@ const HeroVideo = styled.video`
   position: absolute;
   right: 0;
   bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
+  min-height: 100vh;
   @media (max-width: 768px) {
     margin-right: -100%;
   }
@@ -29,6 +28,7 @@ const FlexWrapper = styled.div`
 const Header = styled.header`
   contain: content;
   height: 100vh;
+  overflow: hidden;
 `;
 
 // May the gods of CSS forgive me...
@@ -64,6 +64,7 @@ const SocialLinks = styled.div`
 const ButtonGroup = styled.div`
   > a {
     width: 100%;
+    transition: box-shadow 0.5s;
     :first-child {
       margin-bottom: 20px;
     }
@@ -95,10 +96,11 @@ export default function Hero() {
     <Header>
       <HeroVideo
         autoPlay
+        playsInline
         muted
         loop
         id="chessPiecesVideo"
-        src="/videos/Dominoes_W_Hand_1.mp4"
+        src="/videos/Dominoes_Compressed.mp4"
         type="video/mp4"
       />
       <StyledContainer>

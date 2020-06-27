@@ -20,6 +20,15 @@ const PageStyles = styled.div`
     text-decoration: none;
   }
 
+  a.show-link-styles {
+    color: white;
+    text-shadow: 0px 0px 5px cyan;
+    transition: text-shadow 0.5s;
+    &:hover {
+      text-shadow: 0px 0px 15px cyan;
+    }
+  }
+
   p {
     font-weight: 300;
     line-height: 2;
@@ -40,8 +49,9 @@ const OtherStuff = styled.section`
   }
 `;
 
-const H2 = styled(Typography)`
+const H3 = styled(Typography)`
   font-size: 32px !important;
+  font-weight: 200 !important;
   text-align: center;
   ${({ color, mb }) => `
     text-shadow: 0px 0px 5px ${color};
@@ -52,6 +62,13 @@ const H2 = styled(Typography)`
   }
 `;
 
+const H2 = styled(H3)`
+  font-size: 38px !important;
+  margin-bottom: 0 !important;
+  padding: 60px 26px 0 26px;
+  background-color: #111111;
+`;
+
 const NarrowContainer = styled(Container)`
   height: 100vh;
   display: flex !important;
@@ -60,7 +77,7 @@ const NarrowContainer = styled(Container)`
   @media (min-width: 769px) {
     max-width: 50% !important;
     height: auto;
-    padding: 120px 0;
+    padding: 80px 0;
   }
 `;
 
@@ -85,27 +102,30 @@ export default function Home() {
   return (
     <PageStyles>
       <Hero />
+      <H2 color="yellow" variant="h3">
+        Around The Table is a VR Board Game Simulator
+      </H2>
       <ImageAndTextSection
         heading={Content.multiplayer.heading}
         body={Content.multiplayer.body}
-        image={Content.multiplayer.img}
+        src={Content.multiplayer.src}
       />
       <ImageAndTextSection
         alignment="right"
         heading={Content.community.heading}
         body={Content.community.body}
-        image={Content.community.img}
+        src={Content.community.src}
       />
       <ImageAndTextSection
         heading={Content.physics.heading}
         body={Content.physics.body}
-        image={Content.physics.img}
+        src={Content.physics.src}
       />
       <OtherStuff alignment="right">
         <NarrowContainer>
-          <H2 color="yellow" variant="h2">
+          <H3 color="yellow" variant="h3">
             Modding, More Games, and Platforms
-          </H2>
+          </H3>
           <OtherParagraph variant="body2">
             Once the core game is developed, the community will have a visual
             scripting platform (with LOTS of tutorials) to create mods and
@@ -130,7 +150,9 @@ export default function Home() {
       </OtherStuff>
       <OtherStuff>
         <NarrowContainer>
-          <H2 color="cyan">How do I get involded?</H2>
+          <H3 variant="h3" color="cyan">
+            How do I get involved?
+          </H3>
           <OtherParagraph variant="body2">
             Join the{' '}
             <a className="show-link-styles" href="https://discord.gg/C7PpsEk">
@@ -158,9 +180,9 @@ export default function Home() {
       </OtherStuff>
       <OtherStuff alignment="right">
         <NarrowContainer>
-          <H2 color="yellow" variant="h2">
+          <H3 color="yellow" variant="h3">
             Thank you to our generous patrons:
-          </H2>
+          </H3>
           <Ul>
             {patrons.map((patron, i) => (
               <Li variant="body1" component="li" key={i}>
